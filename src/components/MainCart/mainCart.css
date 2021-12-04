@@ -1,0 +1,55 @@
+:root{
+    --blue: #004AAD;
+    --darkBlue: #0C356B;
+    --bgColor: #F4F4F4;
+    --purple: #5B1A8E;
+    --white: #FFFFFF;
+    --mainFont: 'PT Mono', monospace;
+    --sideFont: 'PT Sans', sans-serif;
+    --bgFont: 'Pragati Narrow', sans-serif;
+  }
+  
+.cartunit{
+    background-color: rgb(182, 214, 233);
+    ;
+}
+.quantityBox{
+    background-color: white;
+}
+.qbutton{
+    
+    background-color: azure;
+    border: none;
+    font-size: larger;
+    font-weight: 700;
+    color: grey;
+    text-align: center;
+}
+
+
+.dummyselector{
+    background-color: rgba(0, 255, 255, 0);
+}
+
+.verticalign{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cartitle{
+    font-size: 30px;
+    color: var(--darkBlue);
+}
+.trashbutton{
+    background-color: transparent;
+    border: none;
+}
+
+@media(max-width:720px){
+    .cartitle{
+        font-size: 15px;
+    }
+    .cartsubtitle{
+        font-size: 10px;
+    }
+}

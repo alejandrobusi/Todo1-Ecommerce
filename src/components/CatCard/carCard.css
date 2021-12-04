@@ -1,0 +1,14 @@
+.widthCard{
+  max-width: 540px
+}
+.truncate {
+  overflow:hidden;
+  line-height: 1.5rem;
+  max-height: 8rem;
+  -webkit-box-orient: vertical;
+  display: block;
+  display: -webkit-box;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 4;
+}
