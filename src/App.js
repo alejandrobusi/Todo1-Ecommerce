@@ -1,24 +1,67 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
+import Home from './Pages/Home/Home'
+import CategoriesPage from './Pages/Categories/CategoriesPage';
+import Cart from './Pages/Cart/Cart';
+import Detail from './Pages/Detail/Detail';
+import Confirmation from './Pages/Confirmation/Confirmation';
+import Admin from './Pages/Admin/Admin'
+import Contact from './Pages/Contact/Contact';
 
 function App() {
+
+  const checkUser = localStorage.getItem('user');
+  const user = {
+    name: "Visita",
+    admin: false
+  }
+  
+  if (!checkUser) {
+    localStorage.setItem('user', JSON.stringify(user))
+  } 
+
+  const checkCart = localStorage.getItem('cart');
+  const cart = [];
+  
+   if (!checkCart) {
+     localStorage.setItem('cart', JSON.stringify(cart))
+  } 
+
+  const checkFav = localStorage.getItem('fav');
+  const fav = [];
+
+   if (!checkFav) {
+     localStorage.setItem('cart', JSON.stringify(fav))
+  }
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <BrowserRouter>
+          <Switch>
+            
+            <Route exact path="/">
+              <Redirect to="/home" />
+            </Route>
+
+            <Route path="/home" component={Home}/>
+
+            <Route path="/categories" component={CategoriesPage}/>
+
+            <Route path="/cart" component={Cart}/>
+
+            <Route path="/detail/:id" component={Detail}/>
+
+            <Route path="/confirmation" component={Confirmation} />
+
+            <Route path="/admin" component={Admin} />
+    
+            <Route path="/contacto" component={Contact} />
+            
+          </Switch>
+        </BrowserRouter>
     </div>
+    
   );
 }
 

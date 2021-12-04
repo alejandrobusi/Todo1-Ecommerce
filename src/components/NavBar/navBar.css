@@ -1,0 +1,54 @@
+:root{
+  --blue: #004AAD;
+  --darkBlue: #0C356B;
+  --bgColor: #F4F4F4;
+  --purple: #5B1A8E;
+  --white: #FFFFFF;
+  --grey: #ECEBEB;
+  --greyFont: #BAB1B1;
+  --mainFont: 'PT Mono', monospace;
+  --sideFont: 'PT Sans', sans-serif;
+  --bgFont: 'Pragati Narrow', sans-serif;
+ }
+.navbar {
+  background-color: var(--blue);
+  border-bottom: 4px solid;
+  border-image-slice: 1;
+  border-image-source: var(--backgroundColor);
+}
+.imgNav {
+  width: 90px;
+}
+.navbar-collapse {
+  flex-grow: 0;
+}
+.boxShadowFull {
+  padding: 3rem 1.25rem;
+  position: relative;
+  background-color: #fff;
+  margin-bottom: 3rem;
+  z-index: 2;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.06), 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+}
+.bg-success {
+  background-color: var(--secondaryColor) !important;
+}
+.navLink{
+  padding-top: .3125rem;
+  padding-bottom: .3125rem;
+  margin-right: 1rem;
+  font-size: 1.5rem;
+  text-decoration: none;
+  white-space: nowrap;
+  color: var(--greyFont);
+}
+
+.navLinkActive {
+  padding-top: .3125rem;
+  padding-bottom: .3125rem;
+  margin-right: 1rem;
+  font-size: 1.5rem;
+  text-decoration: none;
+  white-space: nowrap;
+  color: var(--bgColor);
+}

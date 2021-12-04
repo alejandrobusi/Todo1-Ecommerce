@@ -1,10 +1,18 @@
 :root{
-  --blue: #004AAD;;
+  --blue: #004AAD;
   --darkBlue: #0C356B;
   --bgColor: #F4F4F4;
   --purple: #5B1A8E;
   --white: #FFFFFF;
+  --grey: #ECEBEB;
+  --greyFont: #BAB1B1;
   --mainFont: 'PT Mono', monospace;
   --sideFont: 'PT Sans', sans-serif;
   --bgFont: 'Pragati Narrow', sans-serif;
+ }
+.bgCat {
+  background-color: var(--blue);
+}
+.borderR {
+  border: 2px solid #1C1F23;
 }
