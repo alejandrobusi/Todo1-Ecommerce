@@ -3,7 +3,7 @@ import {useForm} from 'react-hook-form'
 import '../AddProduct/addProduct.css'
 import moreItems from '../../assets/moreitems.png'
 
-function AddProduct() {
+function ProdPatch(props) {
   
   const {register,formState:{errors},handleSubmit} = useForm();
 
@@ -11,7 +11,7 @@ function AddProduct() {
 
   const onSubmit = data => {
       fetch('http://localhost:8000/products', {
-          method: 'POST',
+          method: 'PATCH',
           body: JSON.stringify(data),
           headers: {
             'accesstoken' : token,
@@ -29,16 +29,16 @@ function AddProduct() {
         <div class="card shadow col-3" >
          <img src={moreItems} class="card-img-top" alt="..."/>
           <div class="card-body">
-            <h5 class="card-title">Agregar items...</h5>
+            <h5 class="card-title">Editar item...</h5>
             <p class="card-text">Si desea añadir items a su E-commerce puede usar esta función. haga click en el boton Añadir items para abrir un modal con el formulario.</p>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-              Añadir items
+              Editar item
             </button>
             <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Añadir items</h5>
+                    <h5 class="modal-title" id="staticBackdropLabel">Editar items</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
@@ -100,4 +100,4 @@ function AddProduct() {
             )
         }
 
-export default AddProduct
+export default ProdPatch

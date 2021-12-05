@@ -1,6 +1,4 @@
 import React, {useState, useEffect} from 'react'
-import Footer from '../../components/Footer/Footer';
-import HelpPage from '../../components/HelpPage/HelpPage';
 import Navbar from '../../components/NavBar/Navbar'
 
 function Contact() {
@@ -19,8 +17,6 @@ function Contact() {
   return (
     <div>
       <Navbar userData={userData} token={token}></Navbar>
-      <HelpPage/>
-      <Footer/>
     </div>
   )
 }

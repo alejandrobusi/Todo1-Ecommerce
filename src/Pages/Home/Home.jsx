@@ -1,9 +1,6 @@
 import React, { useState, useEffect, useLayoutEffect} from 'react'
-import Banner from '../../components/Banner/Banner';
 import Browser from '../../components/Browser/Browser';
-import Footer from '../../components/Footer/Footer';
 import Navbar from '../../components/NavBar/Navbar'
-import ProdDestacados from '../../components/ProdDestacados/ProdDestacados'
 
 
 function Home() {
@@ -52,10 +49,7 @@ function Home() {
   return (
     <div>
       <Navbar userData={userData} token={token}></Navbar>
-      <Banner></Banner>
-      <ProdDestacados></ProdDestacados>
       <Browser setSearchText={setSearchText} auxProduct={auxProduct} products={products}></Browser>
-      <Footer></Footer>
     </div>
   )
 }

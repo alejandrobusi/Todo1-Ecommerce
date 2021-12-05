@@ -8,16 +8,16 @@ function DetailItem(props) {
   
   const getLocal = JSON.parse(localStorage.getItem('fav'))
   let { id } = useParams()
-  const [book, setBook] = useState({})
+  const [item, setItem] = useState({})
   const [isFav, setIsFav] = useState()
 
   useEffect(() => {
-    setBook(props.item) 
+    setItem(props.item) 
   }, [props])
 
   const favs = (getLocal) => {
     const filter = getLocal.find((x) => x.id === id)
-    setFavLocalStorage(book._id)
+    setFavLocalStorage(item._id)
     if (filter) {
       setIsFav(true)
     } else {
@@ -28,19 +28,19 @@ function DetailItem(props) {
 
   return (
     <div className="container my-5">
-      {book?(
+      {item?(
       <div>
         <div className="animate__animated animate__bounceIn card shadow mb-3" >
           <div className="row g-0">
             <div className="col-md-2">
-              <img src={book.imgUrl} className="img-fluid rounded-start " alt="..."/>
+              <img src={item.imgUrl} className="img-fluid rounded-start " alt="..."/>
             </div>
             <div className="col-md-10">
               <div className="card-body">
-                <h5 className="card-title fs-1">{book.name}</h5>
-                <p className="card-text">{book.description}</p>
+                <h5 className="card-title fs-1">{item.name}</h5>
+                <p className="card-text">{item.description}</p>
                 <div className="d-flex justify-content-end">
-                  <h3 className="align-items-end fw-bold">$ {book.price}</h3>
+                  <h3 className="align-items-end fw-bold">$ {item.price}</h3>
                 </div>
                 <div className="d-flex justify-content-end">
                 {
@@ -55,30 +55,21 @@ function DetailItem(props) {
             </div>
           </div>
         </div>
-        {/* DETALLES */}
         <div class="animate__animated animate__bounceIn card shadow">
           <div class="card-header">
-          <strong> Detalles de {book.name} &#x1f4d6;</strong> 
+          <strong> Detalles de {item.name}</strong> 
           </div>
           <div class="card-body">
             <blockquote class="blockquote mb-0">
-              <p>Autor</p>
-              <footer class="blockquote-footer">{book.author}</footer>
-            </blockquote>
-            <blockquote class="blockquote mb-0">
-              <p>Editorial</p>
-              <footer class="blockquote-footer">{book.editorial}</footer>
-            </blockquote>
-            <blockquote class="blockquote mb-0">
-              <p>ISBN</p>
-              <footer class="blockquote-footer">{book.isbn}</footer>
+              <p>Categoria</p>
+              <footer class="blockquote-footer">{item.category}</footer>
             </blockquote>
             <blockquote class="blockquote mb-0">
               <p>Precio</p>
-              <footer class="blockquote-footer">$ {book.price}</footer>
+              <footer class="blockquote-footer">$ {item.price}</footer>
             </blockquote><blockquote class="blockquote mb-0">
               <p>Stock</p>
-              <footer class="blockquote-footer">{book.stock} Unidades</footer>
+              <footer class="blockquote-footer">{item.stock} Unidades</footer>
             </blockquote>
           </div>
         </div>

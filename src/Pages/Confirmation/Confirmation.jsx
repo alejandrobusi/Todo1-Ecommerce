@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import Navbar from '../../components/NavBar/Navbar'
-import Footer from '../../components/Footer/Footer'
 import ConfirmedCart from '../../components/ConfirmedCart/ConfirmedCart'
 
 
@@ -35,7 +34,6 @@ function Confirmation() {
     <div>
       <Navbar userData={userData} token={token}></Navbar>
       <ConfirmedCart></ConfirmedCart>
-      <Footer></Footer>
     </div>
   )
 }

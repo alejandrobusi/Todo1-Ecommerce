@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from '../../components/NavBar/Navbar'
-import Footer from '../../components/Footer/Footer'
 import Purchasesreg from '../../components/Purchasesreg/Purchasesreg'
 import AddProduct from '../../components/AddProduct/AddProduct'
+import ProductListEdit from '../../components/ProductListEdit/ProductListEdit'
 
 
-function Admin() {
+function Admin(props) {
 
   const [token, setToken] = useState("")
 
@@ -17,16 +17,16 @@ function Admin() {
     setUserData(JSON.parse(localStorage.getItem('user')) )
 
   }, [])
+
   
   return (
     <div>
       <Navbar userData={userData} token={token}></Navbar>
-      <div className='container'>
-        <Purchasesreg></Purchasesreg>
+      <div className='container-fluid d-flex row my-5'>
+        {/* <Purchasesreg></Purchasesreg> */}
         <AddProduct></AddProduct>
+        <ProductListEdit token={token}></ProductListEdit>
       </div>
-      <Footer></Footer>
-
     </div>
   )
 }

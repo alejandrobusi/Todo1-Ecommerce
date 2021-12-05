@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import Navbar from '../../components/NavBar/Navbar'
-import Footer from '../../components/Footer/Footer'
 import MainCart from '../../components/MainCart/MainCart'
 
 
@@ -34,8 +33,6 @@ function Cart() {
     <div>
       <Navbar userData={userData} token={token}></Navbar>
       <MainCart></MainCart>
-      <Footer></Footer>
-
     </div>
   )
 }

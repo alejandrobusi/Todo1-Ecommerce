@@ -1,4 +1,4 @@
-import React, { useState, useEffect, } from 'react'
+import React from 'react'
 import '../LoginModal/login.css'
 import Swal from 'sweetalert2'
 import { useForm } from "react-hook-form"
