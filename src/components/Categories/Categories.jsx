@@ -31,17 +31,7 @@ function Categories(props) {
     
   }
   
-  const handleFeatured = () => {
-    const itemsFav = []
-     props.items.forEach( (item) => {
-      if (item.fav) {
-        itemsFav.push(item)
-      }
-
-    })
-    setTitleCategory("Destacados")
-    setCategoryItems(itemsFav)
-  }
+  
   
   return (
     <div>
@@ -58,20 +48,18 @@ function Categories(props) {
               <li>
                 <div className="btn-group" role="group" aria-label="Button group with nested dropdown">
                   <button type="button" onClick={() => {handleEverything()}} className="btn btn-dark">Todos</button>
-                  <button type="button" onClick={() => {handleFeatured()}} className="btn btn-dark">Destacados</button>
                   <div className="btn-group" role="group">
                     <button id="btnGroupDrop1" type="button" className="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                       Categorias
                     </button>
                     <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="btnGroupDrop1">
-                      <li className="dropdown-item" onClick={() => {handleFilterCat("novela")}}>Novela</li>
-                      <li className="dropdown-item" onClick={() => {handleFilterCat("ciencias politicas")}}>Ciencias politicas</li>
-                      <li className="dropdown-item" onClick={() => {handleFilterCat("ficción")}}>Ficción</li>
-                      <li className="dropdown-item" onClick={() => {handleFilterCat("infantiles")}}>Infantiles</li>
-                      <li className="dropdown-item" onClick={() => {handleFilterCat("terror y suspenso")}}>Terror y suspenso</li>
-                      <li className="dropdown-item" onClick={() => {handleFilterCat("clásicos")}}>Clásicos</li>
-                      <li className="dropdown-item" onClick={() => {handleFilterCat("desarrollo personal")}}>Desarrollo personal</li>
-                      <li className="dropdown-item" onClick={() => {handleFilterCat("novedades")}}>Novedades</li>
+                      <li className="dropdown-item" onClick={() => {handleFilterCat("camiseta")}}>Camiseta</li>
+                      <li className="dropdown-item" onClick={() => {handleFilterCat("vaso")}}>Vasos</li>
+                      <li className="dropdown-item" onClick={() => {handleFilterCat("comic")}}>Comics</li>
+                      <li className="dropdown-item" onClick={() => {handleFilterCat("juguete")}}>Juguetes</li>
+                      <li className="dropdown-item" onClick={() => {handleFilterCat("accesorio marvel")}}>Accesorios Marvel</li>
+                      <li className="dropdown-item" onClick={() => {handleFilterCat("accesorio dc")}}>Accesorios DC</li>
+                      <li className="dropdown-item" onClick={() => {handleFilterCat("otros")}}>Otros</li>
                     </ul>
                   </div>
                 </div>
