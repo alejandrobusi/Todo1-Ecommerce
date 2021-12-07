@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import Navbar from '../../components/NavBar/Navbar'
 import { useParams } from 'react-router-dom'
 import EditItem from '../../components/EditItem/EditItem'
+import Footer from '../../components/Footer/Footer'
 
 function Edit() {
 
@@ -27,6 +28,7 @@ function Edit() {
     <div>
       <Navbar></Navbar>
       <EditItem item={itemFilter}></EditItem>
+      <Footer></Footer>
     </div>
   )
 }

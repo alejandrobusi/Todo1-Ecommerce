@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Categories from '../../components/Categories/Categories'
+import Footer from '../../components/Footer/Footer'
 import Navbar from '../../components/NavBar/Navbar'
 
 function CategoriesPage(props) {
@@ -22,6 +23,7 @@ function CategoriesPage(props) {
     <div>
       <Navbar></Navbar>
       <Categories items={products}></Categories>
+      <Footer></Footer>
     </div>
   )
 }

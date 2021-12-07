@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Navbar from '../../components/NavBar/Navbar'
 import AddProduct from '../../components/AddProduct/AddProduct'
 import ProductListEdit from '../../components/ProductListEdit/ProductListEdit'
+import Footer from '../../components/Footer/Footer'
 
 
 function Admin(props) {
@@ -22,6 +23,7 @@ function Admin(props) {
         {/* <Purchasesreg></Purchasesreg> */}
         <AddProduct></AddProduct>
         <ProductListEdit token={token}></ProductListEdit>
+        <Footer></Footer>
       </div>
     </div>
     </>

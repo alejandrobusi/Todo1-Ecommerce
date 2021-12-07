@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import DetailItem from '../../components/DetailItem/DetailItem'
 import Navbar from '../../components/NavBar/Navbar'
+import Footer from '../../components/Footer/Footer'
 
 
 
@@ -31,6 +32,7 @@ function Detail() {
     <div>
       <Navbar></Navbar>
       <DetailItem item={itemFilter}/>
+      <Footer></Footer>
     </div>
   )
 }

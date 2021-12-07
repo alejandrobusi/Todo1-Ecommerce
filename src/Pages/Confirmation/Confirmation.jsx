@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from '../../components/NavBar/Navbar'
 import ConfirmedCart from '../../components/ConfirmedCart/ConfirmedCart'
+import Footer from '../../components/Footer/Footer'
 
 
 function Confirmation() {
@@ -9,6 +10,7 @@ function Confirmation() {
     <div>
       <Navbar></Navbar>
       <ConfirmedCart></ConfirmedCart>
+      <Footer></Footer>
     </div>
   )
 }
