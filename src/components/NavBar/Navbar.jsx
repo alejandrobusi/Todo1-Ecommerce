@@ -38,7 +38,7 @@ const logOut = () => {
                 <div className="navbar-nav align-items-center">
                   <NavLink exact to="/home" className="navLink" activeClassName="navLinkActive" aria-current="page" >Home</NavLink>
                   <NavLink exact to="/categories"className="navLink" activeClassName="navLinkActive" aria-current="page" >Categories</NavLink>
-                  <NavLink exact to="/contacto" className="navLink" activeClassName="navLinkActive" aria-current="page" >Contacto</NavLink>
+                  {/* <NavLink exact to="/confirmation" className="navLink" activeClassName="navLinkActive" aria-current="page" >Contacto</NavLink> */}
                   <NavLink exact to="/cart" className="navLink" activeClassName="navLinkActive" aria-current="page" >🛒</NavLink>
                   {isAdmin
                   ?

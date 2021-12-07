@@ -8,6 +8,13 @@ function ProdPatch(props) {
   const {register,formState:{errors},handleSubmit} = useForm();
 
   const [token, setToken] = useState(JSON.parse(localStorage.getItem('token')))
+  const [name, setName] = useState(props.item.name)
+  
+  const onInputchange= (e) => {
+
+    setName(e.target.value)
+
+}
 
   const onSubmit = data => {
       fetch('http://localhost:8000/products', {
@@ -26,28 +33,24 @@ function ProdPatch(props) {
     return (
     
       <div>
-        <div class="card shadow col-3" >
-         <img src={moreItems} class="card-img-top" alt="..."/>
-          <div class="card-body">
-            <h5 class="card-title">Editar item...</h5>
-            <p class="card-text">Si desea añadir items a su E-commerce puede usar esta función. haga click en el boton Añadir items para abrir un modal con el formulario.</p>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-              Editar item
+        
+            <button type="button" className="btn btn-success bi  bi-pencil-square mx-2" data-bs-toggle="modal" data-bs-target="#editItem">
+              
             </button>
-            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Editar items</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div className="modal fade" id="editItem" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="false">
+              <div className="modal-dialog">
+                <div className="modal-content">
+                  <div className="modal-header">
+                    <h5 className="modal-title" id="staticBackdropLabel">Editar items</h5>
+                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
-                  <div class="modal-body">
-                    <div class="container-fluid">
+                  <div className="modal-body">
+                    <div className="container-fluid">
                     <div className='row'>
                       <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="form mb-3">
                             <label for="floatingInput">Nombre</label>
-                            <input {...register("name", { required: true, message: "El campo es requerido"})}  type="text" name="name" className="form-control" id="floatingInput"/>
+                            <input {...register("name", { required: true, message: "El campo es requerido"})} value={name} onChange={onInputchange} type="text" name="name" className="form-control" id="floatingInput"/>
                             {errors.name && <span className="errorColor">{errors.name.message}</span>}
                         </div>
                         <div className="form mb-3">
@@ -85,17 +88,15 @@ function ProdPatch(props) {
                       </form>
                     </div>
                     </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                    <div className="modal-footer">
+                      <button type="button" className="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
                     </div>
                   </div>
                 </div>
               </div>
              </div>
            </div>
-        </div>
-      </div>
-        
+       
 
             )
         }

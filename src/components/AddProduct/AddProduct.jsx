@@ -2,14 +2,19 @@ import React, {useState} from 'react'
 import {useForm} from 'react-hook-form'
 import '../AddProduct/addProduct.css'
 import moreItems from '../../assets/moreitems.png'
+import Swal from 'sweetalert2'
 
 function AddProduct() {
   
-  const {register,formState:{errors},handleSubmit} = useForm();
+  const {register, formState:{errors}, handleSubmit, reset} = useForm();
 
   const [token, setToken] = useState(JSON.parse(localStorage.getItem('token')))
 
+  const [statusRes, setStatusRes] = useState()
+
+
   const onSubmit = data => {
+    
       fetch('http://localhost:8000/products', {
           method: 'POST',
           body: JSON.stringify(data),
@@ -18,31 +23,53 @@ function AddProduct() {
             'Content-type': 'application/json',
             }
           })
-        .then(response=> response.json())
-        .then(json => console.log(json))
+        .then(res => {
+          setStatusRes(res.status)
+          return res.json()
+          })
+        .then(json => json.json)
+        if (statusRes === 200) {
+          Swal.fire({
+            icon: 'success',
+            title: 'Yeah...',
+            text: 'Agregaste un con exito!',
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'Aceptar'
+          }).then((result) => {
+            if (result.isConfirmed) {
+             reset()
+            }
+          })
+         
+        } else {
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Algo salió mal, intenta mas tarde!',
+          })
+        }
     }
 
 
     return (
     
-      <div>
-        <div class="card shadow col-3" >
-         <img src={moreItems} class="card-img-top" alt="..."/>
-          <div class="card-body">
-            <h5 class="card-title">Agregar items...</h5>
-            <p class="card-text">Si desea añadir items a su E-commerce puede usar esta función. haga click en el boton Añadir items para abrir un modal con el formulario.</p>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        <div className="card shadow col-4" >
+         <img src={moreItems} className="card-img-top" alt="..."/>
+          <div className="card-body">
+            <h5 className="card-title">Agregar items...</h5>
+            <p className="card-text">Si desea añadir items a su E-commerce puede usar esta función. haga click en el boton Añadir items para abrir un modal con el formulario.</p>
+            <button type="button" className="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
               Añadir items
             </button>
-            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Añadir items</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div className="modal-dialog">
+                <div className="modal-content">
+                  <div className="modal-header">
+                    <h5 className="modal-title" id="staticBackdropLabel">Añadir items</h5>
+                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
-                  <div class="modal-body">
-                    <div class="container-fluid">
+                  <div className="modal-body">
+                    <div className="container-fluid">
                     <div className='row'>
                       <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="form mb-3">
@@ -52,7 +79,8 @@ function AddProduct() {
                         </div>
                         <div className="form mb-3">
                             <label for="floatingInput">Descripción</label>
-                            <textarea {...register("description", { required: true })} type="text" className="form-control descArea" id="floatingInput"/>
+                            <textarea {...register("description", {required: { value: true, message: "El campo es requerido"}})} type="text" className="form-control descArea" id="floatingInput"/>
+                            {errors.description && <span className="errorColor">{errors.description.message}</span>}
                         </div>
                         <div className="form mb-3">
                         <label for="floatingInput">Categoria</label>
@@ -85,8 +113,8 @@ function AddProduct() {
                       </form>
                     </div>
                     </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                    <div className="modal-footer">
+                      <button type="button" className="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
                     </div>
                   </div>
                 </div>
@@ -94,10 +122,7 @@ function AddProduct() {
              </div>
            </div>
         </div>
-      </div>
-        
-
-            )
-        }
+      )
+    }
 
 export default AddProduct

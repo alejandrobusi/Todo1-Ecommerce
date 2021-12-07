@@ -20,7 +20,11 @@ function Login(props) {
        'Content-type': 'application/json; charset=UTF-8',
      },
    })
-     .then(res => res.json())
+      .then(res => {
+        // setStatusRes(res.status)
+        console.log(res.status)
+        return res.json()
+      })
      .then(json => {
        if(json.token) {
          if (json.frontUser.admin) {
@@ -44,6 +48,7 @@ function Login(props) {
             }) 
           }
      }) 
+     
    }
   
   return (
@@ -91,7 +96,7 @@ function Login(props) {
                   </div>
                   <div className="modal-footer d-block">
                     <p className="float-start">
-                      Todavia no eststas registrado? <a href="#">Registrarme</a>
+                      Todavia no eststas registrado? <a href="/register">Registrarme</a>
                     </p>
                     <button type="submit" className="btn btn-dark float-end" data-bs-dismiss="modal">
                       Submit

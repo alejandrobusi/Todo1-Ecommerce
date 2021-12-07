@@ -1,5 +1,6 @@
-import React, { useState, useEffect, useLayoutEffect} from 'react'
+import React, { useState, useEffect} from 'react'
 import Browser from '../../components/Browser/Browser';
+import Footer from '../../components/Footer/Footer';
 import Navbar from '../../components/NavBar/Navbar'
 
 
@@ -10,17 +11,6 @@ function Home() {
   const [auxProduct, setAuxProducts] = useState([])
 
   const [searchText, setSearchText] = useState("")
-
-  const [token, setToken] = useState("")
-
-  const [userData, setUserData] = useState({})
-  
-  useLayoutEffect(() => {
-    
-    setToken(JSON.parse(localStorage.getItem('token')) )
-    setUserData(JSON.parse(localStorage.getItem('user')) )
-
-  }, [])
 
   const getItems = () => {
     fetch('http://localhost:8000/products')
@@ -48,8 +38,9 @@ function Home() {
 
   return (
     <div>
-      <Navbar userData={userData} token={token}></Navbar>
+      <Navbar></Navbar>
       <Browser setSearchText={setSearchText} auxProduct={auxProduct} products={products}></Browser>
+      <Footer></Footer>
     </div>
   )
 }

@@ -11,6 +11,7 @@ function Categories(props) {
   useEffect(() => {
   
     setCategoryItems(props.items)
+    
   },[props])
 
 
@@ -47,9 +48,9 @@ function Categories(props) {
               </li>
               <li>
                 <div className="btn-group" role="group" aria-label="Button group with nested dropdown">
-                  <button type="button" onClick={() => {handleEverything()}} className="btn btn-dark">Todos</button>
+                  <button type="button" onClick={() => {handleEverything()}} className="btn btn-success">Todos</button>
                   <div className="btn-group" role="group">
-                    <button id="btnGroupDrop1" type="button" className="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button id="btnGroupDrop1" type="button" className="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                       Categorias
                     </button>
                     <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="btnGroupDrop1">
