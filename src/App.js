@@ -7,6 +7,9 @@ import Detail from './Pages/Detail/Detail';
 import Confirmation from './Pages/Confirmation/Confirmation';
 import Admin from './Pages/Admin/Admin'
 import Contact from './Pages/Contact/Contact';
+import Edit from './Pages/Edit/Edit'
+import Register from './Pages/Register/Register';
+
 
 function App() {
 
@@ -27,12 +30,12 @@ function App() {
      localStorage.setItem('cart', JSON.stringify(cart))
   } 
 
-  const checkFav = localStorage.getItem('fav');
-  const fav = [];
+  // const checkFav = localStorage.getItem('fav');
+  // const fav = [];
 
-   if (!checkFav) {
-     localStorage.setItem('cart', JSON.stringify(fav))
-  }
+  //  if (!checkFav) {
+  //    localStorage.setItem('cart', JSON.stringify(fav))
+  // }
 
 
   return (
@@ -55,8 +58,12 @@ function App() {
             <Route path="/confirmation" component={Confirmation} />
 
             <Route path="/admin" component={Admin} />
+
+            <Route path="/edit/:id" component={Edit} />
     
             <Route path="/contacto" component={Contact} />
+
+            <Route path="/register" component={Register} />
             
           </Switch>
         </BrowserRouter>

@@ -35,8 +35,8 @@ function CatCard(props) {
   let history = useHistory()
 
   const handleClick = () => {
+    
   history.push(`/detail/${_id}`)
-
 
   }
   
@@ -59,11 +59,11 @@ function CatCard(props) {
                 <button type="button" onClick={() => {
                   setLocalStorage(props.item)
                   setOnOff(!onOff)
-                  }} class="btn btn-dark mt-2 position-relative">
+                  }} className="btn btn-dark mt-2 position-relative">
                   Añadir &#x1f6d2;
-                  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                  <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                     {item}
-                    <span class="visually-hidden">unread messages</span>
+                    <span className="visually-hidden">unread messages</span>
                   </span>
                 </button>
                 :

@@ -1,5 +1,5 @@
 :root{
-  --blue: #004AAD;
+  --primary-color: #1e1e1e; 
   --darkBlue: #0C356B;
   --bgColor: #F4F4F4;
   --purple: #5B1A8E;
@@ -11,7 +11,7 @@
   --bgFont: 'Pragati Narrow', sans-serif;
  }
 .bgCat {
-  background-color: var(--blue);
+  background-color: var(--primary-color);
 }
 .borderR {
   border: 2px solid #1C1F23;

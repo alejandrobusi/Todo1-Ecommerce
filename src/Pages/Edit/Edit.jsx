@@ -1,14 +1,12 @@
-import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
-import DetailItem from '../../components/DetailItem/DetailItem'
+import React, {useState, useEffect} from 'react'
 import Navbar from '../../components/NavBar/Navbar'
+import { useParams } from 'react-router-dom'
+import EditItem from '../../components/EditItem/EditItem'
 
+function Edit() {
 
-
-function Detail() {
- 
   let { id } = useParams()
- 
+  
   const [products, setProducts] = useState([])
 
   const getItems = () => {
@@ -19,20 +17,18 @@ function Detail() {
 
   useEffect(() => {
 
-    getItems()
+  getItems()
 
   }, [])
 
   const itemFilter = products.find( item => item._id === id );
-
-  console.log(itemFilter)
   
   return (
     <div>
       <Navbar></Navbar>
-      <DetailItem item={itemFilter}/>
+      <EditItem item={itemFilter}></EditItem>
     </div>
   )
 }
 
-export default Detail
+export default Edit

@@ -55,21 +55,21 @@ function DetailItem(props) {
             </div>
           </div>
         </div>
-        <div class="animate__animated animate__bounceIn card shadow">
-          <div class="card-header">
+        <div className="animate__animated animate__bounceIn card shadow">
+          <div className="card-header">
           <strong> Detalles de {item.name}</strong> 
           </div>
-          <div class="card-body">
-            <blockquote class="blockquote mb-0">
+          <div className="card-body">
+            <blockquote className="blockquote mb-0">
               <p>Categoria</p>
-              <footer class="blockquote-footer">{item.category}</footer>
+              <footer className="blockquote-footer">{item.category}</footer>
             </blockquote>
-            <blockquote class="blockquote mb-0">
+            <blockquote className="blockquote mb-0">
               <p>Precio</p>
-              <footer class="blockquote-footer">$ {item.price}</footer>
-            </blockquote><blockquote class="blockquote mb-0">
+              <footer className="blockquote-footer">$ {item.price}</footer>
+            </blockquote><blockquote className="blockquote mb-0">
               <p>Stock</p>
-              <footer class="blockquote-footer">{item.stock} Unidades</footer>
+              <footer className="blockquote-footer">{item.stock} Unidades</footer>
             </blockquote>
           </div>
         </div>

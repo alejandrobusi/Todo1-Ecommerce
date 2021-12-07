@@ -12,8 +12,8 @@ function Browser({setSearchText, auxProduct, products}) {
         <div className="rounded-3 text-center boxShadowFull container">
           <div className="card-header borderR rounded-5 bgCat">
             <ul className="nav nav-pills bgCat card-header-pills justify-content-center">
-             <div class="col-sm-3 mx-2">
-              <input type="text" onChange={(e) => {setSearchText(e.target.value)}} class="form-control" placeholder="Buscar"/>
+             <div className="col-sm-3 mx-2">
+              <input type="text" onChange={(e) => {setSearchText(e.target.value)}} className="form-control" placeholder="Buscar"/>
              </div>
             </ul>
           </div>
