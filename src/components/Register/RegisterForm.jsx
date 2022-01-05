@@ -7,7 +7,6 @@ function RegisterForm() {
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const onSubmit = data => {
-    console.log(data)
     if (data.password === data.password2) {
       fetch(`http://localhost:8000/users`,{
         method: 'POST',
@@ -21,7 +20,36 @@ function RegisterForm() {
         },
       })
         .then(res => res.json())
-        .then(json => {console.log(json)})
+        .then(res => {
+          if (res.status === 200) {
+            Swal.fire({
+              title: 'Yeah...',
+              text: 'Usuario creado con exito!',
+              icon: 'success',
+              confirmButtonColor: '#198754',
+              confirmButtonText: 'OK!'
+            }).then((result) => {
+              if (result.isConfirmed) {
+                document.location.href = '/home'
+              }
+            })
+          } else {
+            if (res.errors[0].param === "email") {
+              console.log(res.errors)
+              Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: `El email "${res.errors[0].value}" ya está registrado!`,
+              })
+            } else {
+              Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: `Algo ha sucedido, intenta mas tarde!`,
+              })
+            }
+          }
+        })
     } else {
       Swal.fire({
         icon: 'error',
@@ -29,12 +57,6 @@ function RegisterForm() {
         text: 'Las contraseñas no coinciden!',
       })
     }
-    Swal.fire({
-      icon: 'success',
-      title: 'Yeah...',
-      text: 'Usuario creado!',
-    })
-    document.location.href = '/home'
   }
 
 

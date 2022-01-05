@@ -21,7 +21,6 @@ function Login(props) {
      },
    })
       .then(res => {
-        // setStatusRes(res.status)
         console.log(res.status)
         return res.json()
       })
