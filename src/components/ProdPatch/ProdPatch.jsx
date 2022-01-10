@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {useForm} from 'react-hook-form'
 import '../AddProduct/addProduct.css'
-import moreItems from '../../assets/moreitems.png'
+
 
 function ProdPatch(props) {
   
@@ -34,7 +34,7 @@ function ProdPatch(props) {
     
       <div>
         
-            <button type="button" className="btn btn-success bi  bi-pencil-square mx-2" data-bs-toggle="modal" data-bs-target="#editItem">
+            <button type="button" className="btn btn-success bi  bi-pencil-square mx-2" data-bs-toggle="modal" data-bs-target="#editItem">editar
               
             </button>
             <div className="modal fade" id="editItem" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="false">

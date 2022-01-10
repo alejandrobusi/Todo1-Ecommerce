@@ -52,6 +52,9 @@ function Login(props) {
   
   return (
     <div>
+      <div className='d-flex flex-row'>
+        <button type="button" onClick={() => {document.location.href = '/register'}} className="btn btn-success mx-2">Registrarme
+        </button>
         <button
           type="button"
           className="btn btn-dark d-block "
@@ -60,6 +63,7 @@ function Login(props) {
         >
           ingresar
         </button>
+      </div>
 
         <div
           className="modal fade"

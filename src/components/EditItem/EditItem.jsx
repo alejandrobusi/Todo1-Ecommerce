@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useLayoutEffect} from 'react'
+import React, {useState, useEffect} from 'react'
 import {useForm} from 'react-hook-form'
 import { useParams } from 'react-router-dom'
 import Swal from 'sweetalert2'
@@ -13,6 +13,7 @@ function EditItem(props) {
   const [auxFilter, setAuxFilter] = useState({})
 
   const [statusRes, setStatusRes] = useState()
+  
   const getItems = () => {
     fetch(`http://localhost:8000/products/${id}`)
     .then((response) => response.json())
@@ -30,19 +31,18 @@ function EditItem(props) {
   const [token, setToken] = useState(JSON.parse(localStorage.getItem('token')))
   
   const onSubmit = data => {
-      fetch(`http://localhost:8000/products/${id}`, {
-          method: 'PATCH',
-          body: JSON.stringify(data),
-          headers: {
-            'accesstoken' : token,
-            'Content-type': 'application/json',
-            }
-          })
-        .then(res => {
-          setStatusRes(res.status)
-          return res.json()
-        })
-        .then(json => console.log(json))
+    console.log(data)
+    fetch(`http://localhost:8000/products/${id}`, {
+      method: 'PATCH',
+      body: JSON.stringify(data),
+      headers: {
+        'accesstoken' : token,
+        'Content-type': 'application/json',
+      }           
+    })
+    .then(res => res.json())
+    .then(json => {console.log(json)})
+    
         if (statusRes === 200) {
           Swal.fire({
             icon: 'success',
@@ -65,6 +65,26 @@ function EditItem(props) {
         }
     }
   
+    const fetchPatch = () => {
+      const data = {
+        category: "Camiseta",
+        description: "test new",
+        imgUrl: "https://anglotucuman.com.ar/wp-content/uploads/2021/03/cropped-logotipoangloweb-2021.png",
+        name: "test edited",
+        price: 1233,
+        stock : 23
+      }
+      fetch(`http://localhost:8000/products/${id}`, {
+      method: 'PATCH',
+      body: JSON.stringify(data),
+      headers: {
+        'accesstoken' : token,
+        'Content-type': 'application/json',
+      }           
+    })
+    .then(res => res.json())
+    .then(json => {console.log(json)})
+    }
   return (
     <div className="container-fluid d-flex justify-content-center">
       {auxFilter
@@ -99,7 +119,7 @@ function EditItem(props) {
             </div>
             <div className="form mb-3">
                 <label for="floatingInput">Precio</label>
-                <input {...register("price", { required: true })} value={auxFilter.price} type="text" className="form-control" id="floatingInput"
+                <input {...register("price", { required: true })} value={auxFilter.price} type="number" className="form-control" id="floatingInput"
                 onChange={(e) => setAuxFilter({...auxFilter, price: e.target.value}) }/>
             </div>
             <div className="form mb-3">
@@ -114,6 +134,8 @@ function EditItem(props) {
             </div>
             <div className='d-flex justify-content-center m-3'>
             <button className='btn btn-success' type='submit'>Editar</button>
+            <button className='btn btn-success' onClick={()=>{fetchPatch()}} type='button'>directo</button>
+
             </div>
           </form>
         </div>

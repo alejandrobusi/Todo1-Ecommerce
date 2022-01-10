@@ -26,12 +26,12 @@ function Home() {
 
   useEffect(() => {
     
-  const filteredProducts = products.filter((prod) => {
-    if (prod.name.toLowerCase().indexOf(searchText.toLowerCase()) !== -1) {
-      return prod
-    }
-  })
-  setAuxProducts(filteredProducts)
+    const filteredProducts = products.filter((prod) => {
+      if (prod.name.toLowerCase().indexOf(searchText.toLowerCase()) !== -1) {
+        return prod
+      }
+    })
+    setAuxProducts(filteredProducts)
 
   }, [searchText])
 

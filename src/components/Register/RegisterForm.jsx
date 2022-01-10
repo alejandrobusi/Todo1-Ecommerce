@@ -91,6 +91,9 @@ function RegisterForm() {
             <button type="submit" className="btn btn-success float-end" >
               Registrarme
             </button>
+            <button type="button" className="btn btn-dark float-end" onClick={() => {document.location.href = '/home'}}>
+              Volver a Home
+            </button>
           </div>
         </form>
       </div>

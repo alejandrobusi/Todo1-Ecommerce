@@ -37,12 +37,12 @@ const logOut = () => {
               <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div className="navbar-nav align-items-center">
                   <NavLink exact to="/home" className="navLink" activeClassName="navLinkActive" aria-current="page" >Home</NavLink>
-                  <NavLink exact to="/categories"className="navLink" activeClassName="navLinkActive" aria-current="page" >Categories</NavLink>
+                  <NavLink exact to="/categories"className="navLink" activeClassName="navLinkActive" aria-current="page" >Categorias</NavLink>
                   {/* <NavLink exact to="/confirmation" className="navLink" activeClassName="navLinkActive" aria-current="page" >Contacto</NavLink> */}
-                  <NavLink exact to="/cart" className="navLink" activeClassName="navLinkActive" aria-current="page" >🛒</NavLink>
+                  <NavLink exact to="/cart" className="navLink" activeClassName="navLinkActive" aria-current="page" >Carrito 🛒</NavLink>
                   {isAdmin
                   ?
-                  <NavLink exact to="/admin" className="navLink" activeClassName="navLinkActive" aria-current="page" >Admin tools</NavLink>
+                  <NavLink exact to="/admin" className="navLink" activeClassName="navLinkActive" aria-current="page" >Herramientas del Admin</NavLink>
                   :
                   <></>
                   }

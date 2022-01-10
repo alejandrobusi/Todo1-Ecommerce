@@ -10,8 +10,6 @@ function AddProduct() {
 
   const [token, setToken] = useState(JSON.parse(localStorage.getItem('token')))
 
-  const [statusRes, setStatusRes] = useState()
-
 
   const onSubmit = data => {
     
@@ -23,31 +21,30 @@ function AddProduct() {
             'Content-type': 'application/json',
             }
           })
+        .then(res => res.json())
         .then(res => {
-          setStatusRes(res.status)
-          return res.json()
-          })
-        .then(json => json.json)
-        if (statusRes === 200) {
-          Swal.fire({
-            icon: 'success',
-            title: 'Yeah...',
-            text: 'Agregaste un con exito!',
-            confirmButtonColor: '#3085d6',
-            confirmButtonText: 'Aceptar'
-          }).then((result) => {
-            if (result.isConfirmed) {
-             reset()
-            }
-          })
-         
-        } else {
-          Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Algo salió mal, intenta mas tarde!',
-          })
-        }
+          if (res.status === 200) {
+            Swal.fire({
+              icon: 'success',
+              title: 'Yeah...',
+              text: 'Agregaste un con exito!',
+              confirmButtonColor: '#3085d6',
+              confirmButtonText: 'Aceptar'
+            }).then((result) => {
+              if (result.isConfirmed) {
+               reset()
+              }
+            })
+           
+          } else {
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: 'Algo salió mal, intenta mas tarde!',
+            })
+          }
+        })
+        
     }
 
 
