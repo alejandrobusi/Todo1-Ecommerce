@@ -32,9 +32,19 @@ function EditItem(props) {
   
   const onSubmit = data => {
     console.log(data)
+    const item = {
+      
+        category: data.category,
+        description: data.description,
+        imgUrl: data.imgUrl,
+        name: data.name,
+        price: parseInt(data.price),
+        stock: parseInt(data.stock)
+     
+    }
     fetch(`http://localhost:8000/products/${id}`, {
       method: 'PATCH',
-      body: JSON.stringify(data),
+      body: JSON.stringify(item),
       headers: {
         'accesstoken' : token,
         'Content-type': 'application/json',
@@ -65,26 +75,6 @@ function EditItem(props) {
         }
     }
   
-    const fetchPatch = () => {
-      const data = {
-        category: "Camiseta",
-        description: "test new",
-        imgUrl: "https://anglotucuman.com.ar/wp-content/uploads/2021/03/cropped-logotipoangloweb-2021.png",
-        name: "test edited",
-        price: 1233,
-        stock : 23
-      }
-      fetch(`http://localhost:8000/products/${id}`, {
-      method: 'PATCH',
-      body: JSON.stringify(data),
-      headers: {
-        'accesstoken' : token,
-        'Content-type': 'application/json',
-      }           
-    })
-    .then(res => res.json())
-    .then(json => {console.log(json)})
-    }
   return (
     <div className="container-fluid d-flex justify-content-center">
       {auxFilter
@@ -133,9 +123,7 @@ function EditItem(props) {
                 onChange={(e) => setAuxFilter({...auxFilter, imgUrl: e.target.value}) }/>
             </div>
             <div className='d-flex justify-content-center m-3'>
-            <button className='btn btn-success' type='submit'>Editar</button>
-            <button className='btn btn-success' onClick={()=>{fetchPatch()}} type='button'>directo</button>
-
+              <button className='btn btn-success' type='submit'>Editar</button>
             </div>
           </form>
         </div>
