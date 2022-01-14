@@ -8,11 +8,7 @@ function EditItem(props) {
 
   let { id } = useParams()
   
-  const [products, setProducts] = useState([])
-  
   const [auxFilter, setAuxFilter] = useState({})
-
-  const [statusRes, setStatusRes] = useState()
   
   const getItems = () => {
     fetch(`http://localhost:8000/products/${id}`)
@@ -31,29 +27,19 @@ function EditItem(props) {
   const [token, setToken] = useState(JSON.parse(localStorage.getItem('token')))
   
   const onSubmit = data => {
-    console.log(data)
-    const item = {
-      
-        category: data.category,
-        description: data.description,
-        imgUrl: data.imgUrl,
-        name: data.name,
-        price: parseInt(data.price),
-        stock: parseInt(data.stock)
-     
-    }
+    
     fetch(`http://localhost:8000/products/${id}`, {
       method: 'PATCH',
-      body: JSON.stringify(item),
+      body: JSON.stringify(data),
       headers: {
         'accesstoken' : token,
         'Content-type': 'application/json',
       }           
     })
     .then(res => res.json())
-    .then(json => {console.log(json)})
+    .then(json => {
     
-        if (statusRes === 200) {
+        if (json.status === 200) {
           Swal.fire({
             icon: 'success',
             title: 'Yeah...',
@@ -73,6 +59,7 @@ function EditItem(props) {
             text: 'Algo salió mal, intenta mas tarde!',
           })
         }
+      })
     }
   
   return (
