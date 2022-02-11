@@ -110,7 +110,7 @@ function EditItem(props) {
                 onChange={(e) => setAuxFilter({...auxFilter, imgUrl: e.target.value}) }/>
             </div>
             <div className='d-flex justify-content-center m-3'>
-              <button className='btn btn-success' type='submit'>Editar</button>
+              <button className='btn btn-success' type='submit'>Guardar</button>
             </div>
           </form>
         </div>

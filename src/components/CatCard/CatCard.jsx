@@ -41,7 +41,7 @@ function CatCard(props) {
   }
   
   return (
-    <div className=" animate__animated animate__bounceIn col-lg-6">
+    <div className=" animate__animated animate__bounceIn mx-1 g-0 col-lg-5">
       <div className=" card shadow mb-3 widthCard">
         <div className="row g-0">
           <div className="col-md-4">
