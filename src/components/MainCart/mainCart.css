@@ -10,22 +10,24 @@
   }
   
 .cartunit{
-    background-color: rgb(182, 214, 233);
+    background-color: rgb(19, 34, 43);
     ;
 }
 .quantityBox{
-    background-color: white;
+    background-color: none;
 }
 .qbutton{
     
-    background-color: azure;
+    background-color: rgb(19, 34, 43);
     border: none;
     font-size: larger;
     font-weight: 700;
-    color: grey;
+    color: white;
     text-align: center;
 }
-
+.cartsubtitle{
+    color: white;
+}
 
 .dummyselector{
     background-color: rgba(0, 255, 255, 0);
@@ -38,7 +40,7 @@
 }
 .cartitle{
     font-size: 30px;
-    color: var(--darkBlue);
+    color: white;
 }
 .trashbutton{
     background-color: transparent;
@@ -51,5 +53,6 @@
     }
     .cartsubtitle{
         font-size: 10px;
+        color: white;
     }
 }
