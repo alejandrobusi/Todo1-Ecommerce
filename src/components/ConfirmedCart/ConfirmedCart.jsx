@@ -24,7 +24,7 @@ function ConfirmedCart() {
             items: cartforuse
         }          
         console.log(purchase)
-        fetch('http://localhost:8000/purchases', {
+        fetch(process.env.REACT_APP_API_PURCHASE, {
             method: 'POST',
              body: JSON.stringify(purchase),
              headers: {

@@ -7,7 +7,7 @@ function CategoriesPage(props) {
   const [products, setProducts] = useState([])
   
   const getItems = () => {
-    fetch('http://localhost:8000/products')
+    fetch(process.env.REACT_APP_API_PRODUCTS)
     .then((response) => response.json())
     .then((json) => setProducts(json));
   }

@@ -13,7 +13,7 @@ function AddProduct() {
 
   const onSubmit = data => {
     
-      fetch('http://localhost:8000/products', {
+      fetch(process.env.REACT_APP_API_PRODUCTS, {
           method: 'POST',
           body: JSON.stringify(data),
           headers: {

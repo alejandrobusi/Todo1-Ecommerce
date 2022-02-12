@@ -12,7 +12,7 @@ function ProductListEdit(props) {
   const token = props.token
   
   const getItems = () => {
-    fetch('http://localhost:8000/products')
+    fetch(process.env.REACT_APP_API_PRODUCTS)
     .then((response) => response.json())
     .then((json) => setProducts(json));
   }
@@ -26,7 +26,7 @@ function ProductListEdit(props) {
       denyButtonText: `No`,
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:8000/products`, {
+        fetch(process.env.REACT_APP_API_PRODUCTS, {
           method: 'DELETE',
           body: JSON.stringify({
             id: id,

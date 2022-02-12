@@ -11,7 +11,7 @@ function EditItem(props) {
   const [auxFilter, setAuxFilter] = useState({})
   
   const getItems = () => {
-    fetch(`http://localhost:8000/products/${id}`)
+    fetch(process.env.REACT_APP_API_PRODUCTS + {id})
     .then((response) => response.json())
     .then((json) => setAuxFilter(json));
   }
