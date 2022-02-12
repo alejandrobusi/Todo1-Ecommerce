@@ -28,7 +28,7 @@ function EditItem(props) {
   
   const onSubmit = data => {
     
-    fetch(`http://localhost:8000/products/${id}`, {
+    fetch(process.env.REACT_APP_API_PRODUCTS + {id}, {
       method: 'PATCH',
       body: JSON.stringify(data),
       headers: {
