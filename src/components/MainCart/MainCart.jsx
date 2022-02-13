@@ -75,26 +75,27 @@ function MainCart() {
    
     return (
         <div>
+            <div>
+            <h1 className="text-center my-3">TUS PRODUCTOS</h1> 
+            </div>
             {
                 carrito.length>0? 
                 carrito.map(item =>
                     (<div className='px-4 container animate__animated animate__bounceInUp animate__fadeInUp'>
-                    <div className='cartunit row py-2 my-2'>
+                    <div className='cartunit row py-2 px-2 my-2 justify-content-between'>
                         <div className='col-6 '>
                             <h4 className='cartitle'>{item.name}</h4>
-                            
                         </div>
-                        <div className='dummyselector col-3 col-md-1 row d-flex justify-content-center mx-0'>
-                            <button className='col-2 qbutton gx-0' onClick={()=>{modifyQuantity(item._id,"-")}}>-</button>
-                            <div className='quantityBox col-3  verticalign px-0' id='quantityNumber'><h4 className='cartitle'>{item.quantity}</h4></div>
-                            <button className='col-2 qbutton gx-0' onClick={()=>{modifyQuantity(item._id,"+")}}>+</button>
-                            <h6 className='col-12 text-center cartsubtitle'>CANTIDAD</h6>
+                        <div className='dummyselector col-3 col-md-1 row d-flex justify-content-between'>
+                            <button className='col-2 qbutton gx-0 verticalign' onClick={()=>{modifyQuantity(item._id,"-")}}>-</button>
+                            <div className='quantityBox col-3 verticalign px-0' id='quantityNumber'><h4 className='cartitle'>{item.quantity}</h4></div>
+                            <button className='col-2 qbutton gx-0 verticalign' onClick={()=>{modifyQuantity(item._id,"+")}}>+</button>
+                            <h6 className='text-center cartsubtitle'>CANTIDAD</h6>
                         </div>
                         <div className='col-2 col-md-4 text-end px-0'>
                             <h2 className='cartitle'>$ {item.price*item.quantity}</h2>
                         </div>
-                        <div className='row'>
-                            <h6 className='col-12 cartsubtitle'>{item.author}</h6>
+                        <div className='row justify-content-between'>
                             <h6 className='col-10 col-md-10 cartsubtitle'>Stock: {item.stock}</h6>
                             <button className='col-2 col-md-2 trashbutton' onClick={()=>{deleteItem(item._id)}}>🗑️</button>
                         </div>
@@ -112,8 +113,8 @@ function MainCart() {
             }
             {carrito.length>0
             ?
-            <div className='d-flex justify-content-center mt-5'>
-                    <button className='align-self-center btn btn-success my-5' onClick={()=>{document.location.href = '/confirmation';}}>CONTINUAR</button>
+            <div className='d-flex justify-content-center mt-3'>
+                    <button className='align-self-center btn btn-success my-2' onClick={()=>{document.location.href = '/confirmation';}}>CONTINUAR</button>
             </div>
             :
             <></>

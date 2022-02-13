@@ -23,7 +23,6 @@
     font-size: larger;
     font-weight: 700;
     color: white;
-    text-align: center;
 }
 .cartsubtitle{
     color: white;
@@ -35,11 +34,10 @@
 
 .verticalign{
     display: flex;
-    align-items: center;
+    align-items: top;
     justify-content: center;
 }
 .cartitle{
-    font-size: 30px;
     color: white;
 }
 .trashbutton{
