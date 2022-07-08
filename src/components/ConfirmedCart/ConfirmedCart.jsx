@@ -11,13 +11,12 @@ function ConfirmedCart() {
     const cartforuse = JSON.parse(localStorage.getItem('cart'));
     console.log(cartforuse)
  
-    const [change, setChange] = useState(false);
+    const [ change ] = useState(false);
 
     const [suma, setSuma] = useState(0)
 
-    const [statusRes, setStatusRes] = useState()
-
-    const {register, handleSubmit, errors, reset} = useForm();
+    let statusCode = null;
+    const { register, handleSubmit } = useForm();
     const onSubmit = data => {
         const purchase = {
             ...data,
@@ -32,33 +31,34 @@ function ConfirmedCart() {
               }
                 })
         .then(res => {
-            setStatusRes(res.status)
+            statusCode = res.status
             return res.json()
             })
-        .then(json => console.log(json))
-        if (statusRes === 200) {
-            Swal.fire({
-              icon: 'success',
-              title: 'Yeah...',
-              text: 'La compra se realizó con exito!',
-              confirmButtonColor: '#3085d6',
-              confirmButtonText: 'Aceptar'
-            }).then((result) => {
-              if (result.isConfirmed) {
-                const cart = [];
-                localStorage.removeItem('cart')
-                localStorage.setItem('cart', JSON.stringify(cart))
-                document.location.href = '/home'
+        .then(response => {
+            if (statusCode === 200) {
+                Swal.fire({
+                  icon: 'success',
+                  title: 'Yeah...',
+                  text: 'La compra se realizó con exito!',
+                  confirmButtonColor: '#3085d6',
+                  confirmButtonText: 'Aceptar'
+                }).then((result) => {
+                  if (result.isConfirmed) {
+                    const cart = [];
+                    localStorage.removeItem('cart')
+                    localStorage.setItem('cart', JSON.stringify(cart))
+                    document.location.href = '/home'
+                  }
+                })
+               
+              } else {
+                Swal.fire({
+                  icon: 'error',
+                  title: 'Oops...',
+                  text: 'Algo salió mal, intenta mas tarde!',
+                })
               }
-            })
-           
-          } else {
-            Swal.fire({
-              icon: 'error',
-              title: 'Oops...',
-              text: 'Algo salió mal, intenta mas tarde!',
-            })
-          }
+        })
         
     }
     

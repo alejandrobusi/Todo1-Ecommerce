@@ -20,11 +20,11 @@ function EditItem(props) {
     
     getItems()
     
-  }, [])
+  },)
 
   const {register,formState:{errors},handleSubmit} = useForm();
 
-  const [token, setToken] = useState(JSON.parse(localStorage.getItem('token')))
+  const [ token ] = useState(JSON.parse(localStorage.getItem('token')))
   
   const onSubmit = data => {
     

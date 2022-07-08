@@ -8,7 +8,7 @@ function AddProduct() {
   
   const {register, formState:{errors}, handleSubmit, reset} = useForm();
 
-  const [token, setToken] = useState(JSON.parse(localStorage.getItem('token')))
+  const [ token ] = useState(JSON.parse(localStorage.getItem('token')))
 
 
   const onSubmit = data => {

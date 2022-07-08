@@ -6,7 +6,7 @@ import editItem from '../../assets/editItem.png'
 function ProductListEdit(props) {
   
   const [products, setProducts] = useState([])
-
+  const [flagGetItelms, setFlagGetItelms] = useState(false);
   const [statusRes, setStatusRes] = useState()
   
   const token = props.token
@@ -42,6 +42,7 @@ function ProductListEdit(props) {
             })
           .then(json => json.json)
           if (statusRes === 200) {
+            setFlagGetItelms(!flagGetItelms);
             Swal.fire({
               icon: 'success',
               title: 'Yeah...',
@@ -67,7 +68,7 @@ function ProductListEdit(props) {
 
     getItems()
     
-  }, [deleteItem])
+  },)
    
   let history = useHistory()
 

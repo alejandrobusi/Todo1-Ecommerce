@@ -29,7 +29,7 @@ function CatCard(props) {
     if (filter !== -1) {
       setItem(badge[filter].quantity)
     }
-  }, [onOff])
+  }, [badge, filter, onOff])
   
 
   let history = useHistory()

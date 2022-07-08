@@ -19,21 +19,16 @@ function Home() {
   }
   
   useEffect(() => {
-
-  getItems()
-
+    getItems()
   }, [])
 
   useEffect(() => {
     
-    const filteredProducts = products.filter((prod) => {
-      if (prod.name.toLowerCase().indexOf(searchText.toLowerCase()) !== -1) {
-        return prod
-      }
-    })
+    const filteredProducts = products.filter((prod) => (prod.name.toLowerCase().indexOf(searchText.toLowerCase()) !== -1) 
+    )
     setAuxProducts(filteredProducts)
 
-  }, [searchText])
+  }, [products, searchText])
 
 
   return (

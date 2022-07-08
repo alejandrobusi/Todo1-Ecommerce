@@ -2,8 +2,6 @@ import React, { useState, useEffect} from 'react'
 import '../MainCart/mainCart.css'
 import { Link } from 'react-router-dom'
 import Swal from 'sweetalert2'
-import trash from '../../assets/Cart/trash.svg'
-
 
 function MainCart() {
     const [carrito, setCarrito] = useState([]);
@@ -15,7 +13,8 @@ function MainCart() {
     }
     const modifyQuantity = (id,sign) =>{
         let auxcarrito = carrito;
-        auxcarrito.map((item)=>{
+     // eslint-disable-next-line
+        auxcarrito.map((item) => {
             if (item._id === id) {
                 if (sign === "+") {
                     if (item.stock === 0) {
