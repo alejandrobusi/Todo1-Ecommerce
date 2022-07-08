@@ -99,7 +99,7 @@ function Login(props) {
                   </div>
                   <div className="modal-footer d-block">
                     <p className="float-start">
-                      Todavia no eststas registrado? <a href="/register">Registrarme</a>
+                      Todavia no estas registrado? <a href="/register">Registrarme</a>
                     </p>
                     <button type="submit" className="btn btn-dark float-end" data-bs-dismiss="modal">
                       Submit

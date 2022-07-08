@@ -30,19 +30,10 @@ function App() {
      localStorage.setItem('cart', JSON.stringify(cart))
   } 
 
-  // const checkFav = localStorage.getItem('fav');
-  // const fav = [];
-
-  //  if (!checkFav) {
-  //    localStorage.setItem('cart', JSON.stringify(fav))
-  // }
-
-
   return (
     <div>
       <BrowserRouter>
           <Switch>
-            
             <Route exact path="/">
               <Redirect to="/home" />
             </Route>

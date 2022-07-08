@@ -8,7 +8,7 @@ function Browser({setSearchText, auxProduct, products}) {
 
   return (
     <div>
-      <section className="my-5 py-5">
+      <section className="my-3 py-3">
         <div className="rounded-3 text-center boxShadowFull container">
           <div className="card-header borderR rounded-5 bgCat">
             <ul className="nav nav-pills bgCat card-header-pills justify-content-center">

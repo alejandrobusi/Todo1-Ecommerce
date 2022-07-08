@@ -1,94 +1,45 @@
 import React from 'react'
-import logo from '../../assets/Logo-TODO-1.webp'
+import logo from '../../assets/logoNav.png'
 function Footer() {
   return (
     <div>
       <footer className="bg-dark text-center text-white">
           <div className="container p-4">
             <section className="mb-4">
-              <a className="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-                ><i className="fab fa-facebook-f"></i
-              ></a>
-              <a className="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-                ><i className="fab fa-twitter"></i
-              ></a>
-              <a className="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-                ><i className="fab fa-google"></i
-              ></a>
-              <a className="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-                ><i className="fab fa-instagram"></i
-              ></a>
-              <a className="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-                ><i className="fab fa-linkedin-in"></i
-              ></a>
-              <a className="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-                ><i className="fab fa-github"></i
-              ></a>
-            </section>
-           
-            <section className="mb-4">
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum
-                repellat quaerat voluptatibus placeat nam, commodi optio pariatur est quia magnam
-                eum harum corrupti dicta, aliquam sequi voluptate quas.
+                Tienda de productos de comics - Proyecto final de la comision 11I 
               </p>
             </section>
             <section className="">
-              <div className="row">
+              <div className="row justify-content-center">
                 <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
                   <img className="w-50" src={logo} alt="logo" />
                 </div>
                 <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
-                  <h5 className="text-uppercase">Links</h5>
-
+                  <h5 className="text-uppercase">Integrantes</h5>
                   <ul className="list-unstyled mb-0">
                     <li>
-                      <a href="#!" className="text-white">Link 1</a>
+                      <p className="text-white">Pedro Ginel</p>
                     </li>
                     <li>
-                      <a href="#!" className="text-white">Link 2</a>
+                      <p className="text-white">Alejandro Busi</p>
                     </li>
                     <li>
-                      <a href="#!" className="text-white">Link 3</a>
-                    </li>
-                    <li>
-                      <a href="#!" className="text-white">Link 4</a>
+                      <p className="text-white">Mauro Rodriguez</p>
                     </li>
                   </ul>
                 </div>
                 <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
-                  <h5 className="text-uppercase">Links</h5>
-
+                  <h5 className="text-uppercase">Redes</h5>
                   <ul className="list-unstyled mb-0">
                     <li>
-                      <a href="#!" className="text-white">Link 1</a>
+                      <a href="#!" className="text-white">Facebook</a>
                     </li>
                     <li>
-                      <a href="#!" className="text-white">Link 2</a>
+                      <a href="#!" className="text-white">Instagram</a>
                     </li>
                     <li>
-                      <a href="#!" className="text-white">Link 3</a>
-                    </li>
-                    <li>
-                      <a href="#!" className="text-white">Link 4</a>
-                    </li>
-                  </ul>
-                </div>
-                <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
-                  <h5 className="text-uppercase">Links</h5>
-
-                  <ul className="list-unstyled mb-0">
-                    <li>
-                      <a href="#!" className="text-white">Link 1</a>
-                    </li>
-                    <li>
-                      <a href="#!" className="text-white">Link 2</a>
-                    </li>
-                    <li>
-                      <a href="#!" className="text-white">Link 3</a>
-                    </li>
-                    <li>
-                      <a href="#!" className="text-white">Link 4</a>
+                      <a href="#!" className="text-white">Twitter</a>
                     </li>
                   </ul>
                 </div>
@@ -96,8 +47,7 @@ function Footer() {
             </section>
           </div>
           <div className="text-center p-3">
-            © 2020 Copyright:
-            <a className="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+            <p>© 2021 Copyright RollingCode</p>
           </div>
         </footer>
     </div>

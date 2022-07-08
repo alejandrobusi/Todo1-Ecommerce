@@ -3,9 +3,6 @@ import '../ConfirmedCart/confirmedCart.css'
 import { useForm } from "react-hook-form";
 import Swal from 'sweetalert2';
 
-
-
-
 function ConfirmedCart() {
 
     const cartforuse = JSON.parse(localStorage.getItem('cart'));

@@ -36,7 +36,7 @@ function Categories(props) {
   
   return (
     <div>
-      <section className="my-5 py-5">
+      <section className="my-3 py-3">
         <div className="rounded-3 text-center boxShadowFull container">
           <div className="card-header borderR bgCat rounded-5">
             <ul className="nav nav-pills card-header-pills justify-content-between align-items-center">
