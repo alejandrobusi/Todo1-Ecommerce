@@ -80,9 +80,8 @@ function ConfirmedCart() {
 
    
     return (
-
-        
-        <div className='row flex-column justify-content-center animate__animated animate__bounceIn align-items-center'>
+        <div className="container">
+            <div className='row flex-column justify-content-center animate__animated animate__bounceIn align-items-center'>
             <div className='col-md-6'>
                 <form onSubmit={handleSubmit(onSubmit)} className='d-flex flex-column p-3'>
                     <h1 className='modal-title fw-bold fs-1'>INFO DE CONTACTO</h1>
@@ -140,6 +139,7 @@ function ConfirmedCart() {
                 </div>
 
                 </form> 
+            </div>
             </div>
         </div>
     )

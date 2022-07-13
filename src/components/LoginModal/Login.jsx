@@ -102,7 +102,7 @@ function Login(props) {
                       Todavia no estas registrado? <a href="/register">Registrarme</a>
                     </p>
                     <button type="submit" className="btn btn-dark float-end" data-bs-dismiss="modal">
-                      Submit
+                      Ingresar
                     </button>
                   </div>
                 </form>
