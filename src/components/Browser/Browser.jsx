@@ -17,8 +17,10 @@ function Browser({setSearchText, auxProduct, products}) {
              </div>
             </ul>
           </div>
-          <div className="card-body row justify-content-center col-lg-12 g-0">
-            {auxProduct.length > 0?auxProduct.map( item =><CatCard item={item}/>):products.map( item =><CatCard item={item}/>)}
+          <div className="card-body row">
+            <div className='d-flex flex-wrap justify-content-center col-lg-12 g-0'>
+              {auxProduct.length > 0?auxProduct.map( item =><CatCard item={item}/>):products.map( item =><CatCard item={item}/>)}
+            </div>
           </div>
         </div>
       </section>

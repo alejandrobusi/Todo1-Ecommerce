@@ -79,7 +79,7 @@ function RegisterForm() {
           </div>
           <div className="mb-3">
             <label className="form-label">Contraseña</label>
-            <input className="form-control" type="password"  name="password" placeholder="Ingresa tu contraseña" minLength="6" maxLength="12" {...register("password", {required: { value: true, message: "La contraseña es requerida" }, minLength: { value: 6, message: "La contraseña debe tener al menos 6 caracteres" }})} />
+            <input className="form-control" type="password"  name="password" placeholder="Ingresa tu contraseña" minLength="6" maxLength="12" {...register("password", { required: "Required", pattern: { value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&.])[A-Za-z\d$@$!%*?&]{6,12}[^'\s]/, message: "La contraseña debe tener al menos una mayuscula, una minuscula, un numero y un caracter especial."} , minLength: { value: 6, message: "La contraseña debe tener al menos 6 caracteres" }})} />
             {errors.password && <span className="errorColor">{errors.password.message}</span>} 
           </div>
           <div className="mb-3">
@@ -87,6 +87,7 @@ function RegisterForm() {
             <input className="form-control" type="password"  name="password" placeholder="Ingresa tu contraseña" minLength="6" maxLength="12" {...register("password2", {required: { value: true, message: "La contraseña es requerida" }, minLength: { value: 6, message: "La contraseña debe tener al menos 6 caracteres" }})} />
             {errors.password && <span className="errorColor">{errors.password.message}</span>} 
           </div>
+          <div><span>La contraseña debe contar con almenos una mayuscula, una minuscula, un caracter especial y un numero. (min: 6, max: 12)</span></div>
           <div className="modal-footer d-block">
             <button type="submit" className="btn btn-success float-end" >
               Registrarme
