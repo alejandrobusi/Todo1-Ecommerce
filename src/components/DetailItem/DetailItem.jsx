@@ -1,30 +1,45 @@
 import React, { useState, useEffect } from 'react'
 import '../DetailItem/detailItem.css'
-import { useParams } from 'react-router-dom'
-import { setLocalStorage, setFavLocalStorage, toBuy } from '../../helpers/helper'
+import { setLocalStorage,toBuy } from '../../helpers/helper'
+
 
 
 function DetailItem(props) {
+  const  _id  = (document.URL).split("/")[4]
+
+  const badgeData = JSON.parse(localStorage.getItem('cart'))
+
+  const [badge, setBadge] = useState(badgeData)
   
-  const getLocal = JSON.parse(localStorage.getItem('fav'))
-  let { id } = useParams()
+  console.log("badge es: ",badge)
+
+  const filter = badge.findIndex((x) => x._id === _id)
+
+  console.log("filter es: ",filter)
+
+  const [itemb, setItemb] = useState(0)
+
+  const [onOff, setOnOff] = useState(true)
+
+  useEffect(() => {
+    setBadge(JSON.parse(localStorage.getItem('cart')))
+  
+  }, [onOff])
+
+  useEffect(() => {
+    
+    if (filter !== -1) {
+      setItemb(badge[filter].quantity)
+    }
+  }, [badge, filter, onOff])
+
   const [item, setItem] = useState({})
-  const [isFav, setIsFav] = useState()
 
   useEffect(() => {
     setItem(props.item) 
   }, [props])
 
-  const favs = (getLocal) => {
-    const filter = getLocal.find((x) => x.id === id)
-    setFavLocalStorage(item._id)
-    if (filter) {
-      setIsFav(true)
-    } else {
-      setIsFav(false)
-    }
-  }
-
+  console.log(itemb)
 
   return (
     <div className="container my-5">
@@ -43,12 +58,24 @@ function DetailItem(props) {
                   <h3 className="align-items-end fw-bold">$ {item.price}</h3>
                 </div>
                 <div className="d-flex justify-content-end">
-                {
-                  isFav
-                  ? <button type="button" onClick={ () => {favs(getLocal)}} className="btn btn-dark">Añadir &#x1f496;</button>
-                  : <button type="button" onClick={ () => {favs(getLocal)}} className="btn btn-dark">Quitar &#x1f494;</button>
-                }
-                  <button type="button" onClick={() => {setLocalStorage(props.item)}} className="btn btn-dark mx-2">Añadir &#x1f6d2;</button>
+                {itemb >= 1
+                  ?
+                  <button type="button" onClick={() => {
+                    setLocalStorage(props.item)
+                    setOnOff(!onOff)
+                    }} className="btn btn-dark mx-2 position-relative">
+                    Añadir &#x1f6d2;
+                    <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                      *
+                    </span>
+                  </button>
+                  :
+                  <button type="button" onClick={() => {
+                    setLocalStorage(props.item)
+                    setOnOff(!onOff)
+                  }} className="btn btn-dark mx-2">Añadir &#x1f6d2;</button>
+                  }
+
                   <button type="button"  onClick={ () => {toBuy(props.item)}} className="btn btn-dark">Comprar &#x1f4b3;</button>
                 </div>
               </div>
