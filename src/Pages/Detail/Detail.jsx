@@ -24,8 +24,6 @@ function Detail() {
   }, [])
 
   const itemFilter = products.find( item => item._id === id );
-
-  console.log(itemFilter)
   
   return (
     <div>

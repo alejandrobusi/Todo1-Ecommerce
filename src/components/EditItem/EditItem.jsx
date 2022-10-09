@@ -44,7 +44,6 @@ function EditItem() {
     })
     .then(res => res.json())
     .then(json => {
-      console.log(json)
       if (json.status === 200) {
         Swal.fire({
           icon: 'success',

@@ -21,7 +21,6 @@ function Login(props) {
      },
    })
       .then(res => {
-        console.log(res.status)
         return res.json()
       })
      .then(json => {

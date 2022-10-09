@@ -6,7 +6,6 @@ import Swal from 'sweetalert2';
 function ConfirmedCart() {
 
     const cartforuse = JSON.parse(localStorage.getItem('cart'));
-    console.log(cartforuse)
  
     const [ change ] = useState(false);
 
@@ -19,7 +18,6 @@ function ConfirmedCart() {
             ...data,
             items: cartforuse
         }          
-        console.log(purchase)
         fetch(process.env.REACT_APP_API_PURCHASE, {
             method: 'POST',
              body: JSON.stringify(purchase),

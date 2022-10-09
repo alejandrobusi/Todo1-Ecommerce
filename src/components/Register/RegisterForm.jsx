@@ -35,7 +35,6 @@ function RegisterForm() {
             })
           } else {
             if (res.errors[0].param === "email") {
-              console.log(res.errors)
               Swal.fire({
                 icon: 'error',
                 title: 'Oops...',

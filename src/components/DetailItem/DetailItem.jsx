@@ -11,11 +11,9 @@ function DetailItem(props) {
 
   const [badge, setBadge] = useState(badgeData)
   
-  console.log("badge es: ",badge)
 
   const filter = badge.findIndex((x) => x._id === _id)
 
-  console.log("filter es: ",filter)
 
   const [itemb, setItemb] = useState(0)
 
@@ -38,8 +36,6 @@ function DetailItem(props) {
   useEffect(() => {
     setItem(props.item) 
   }, [props])
-
-  console.log(itemb)
 
   return (
     <div className="container my-5">

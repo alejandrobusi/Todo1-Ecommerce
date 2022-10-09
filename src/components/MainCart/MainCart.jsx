@@ -67,7 +67,6 @@ function MainCart() {
           
    useEffect(() => {
        getProductcard()
-       //console.log("Entro")
    }, [change])
 
 
