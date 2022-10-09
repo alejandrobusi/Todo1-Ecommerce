@@ -19,7 +19,6 @@ function Admin(props) {
      <> <Navbar></Navbar>
     <div className="container">
       <div className=' d-flex row w-100 justify-content-center my-5'>
-        {/* <Purchasesreg></Purchasesreg> */}
         <AddProduct></AddProduct>
         <ProductListEdit token={token}></ProductListEdit>
       </div>

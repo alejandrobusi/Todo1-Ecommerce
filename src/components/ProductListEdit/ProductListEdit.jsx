@@ -68,7 +68,7 @@ function ProductListEdit(props) {
 
     getItems()
     
-  },)
+  }, [])
    
   let history = useHistory()
 
