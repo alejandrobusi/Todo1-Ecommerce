@@ -8,7 +8,7 @@ function RegisterForm() {
 
   const onSubmit = data => {
     if (data.password === data.password2) {
-      fetch(`http://localhost:8000/users`,{
+      fetch(process.env.REACT_APP_API_USERS,{
         method: 'POST',
         body: JSON.stringify({
           name: data.name,
