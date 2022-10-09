@@ -49,7 +49,6 @@ function AddProduct() {
 
 
     return (
-    
         <div className="card shadow col-4" >
          <img src={moreItems} className="card-img-top" alt="..."/>
           <div className="card-body">
@@ -67,48 +66,66 @@ function AddProduct() {
                   </div>
                   <div className="modal-body">
                     <div className="container-fluid">
-                    <div className='row'>
-                      <form onSubmit={handleSubmit(onSubmit)}>
-                        <div className="form mb-3">
+                      <div className='row'>
+                        <form onSubmit={handleSubmit(onSubmit)}>
+                          <div className="form mb-3">
                             <label for="floatingInput">Nombre</label>
-                            <input {...register("name", { required: true, message: "El campo es requerido"})}  type="text" name="name" className="form-control" id="floatingInput"/>
+                            <input {...register("name", {
+                              required: {value: true, message: "El campo es requerido"},
+                              maxLength: { value: 40, message: "Solo puedes ingresar 40 caracteres"}
+                              })} type="text" className="form-control" id="floatingInput"/>
                             {errors.name && <span className="errorColor">{errors.name.message}</span>}
-                        </div>
-                        <div className="form mb-3">
+                          </div>
+                          <div className="form mb-3">
                             <label for="floatingInput">Descripción</label>
-                            <textarea {...register("description", {required: { value: true, message: "El campo es requerido"}})} type="text" className="form-control descArea" id="floatingInput"/>
+                            <textarea {...register("description", {
+                              required: {value: true, message: "El campo es requerido"},
+                              maxLength: { value: 200, message: "Solo puedes ingresar 200 caracteres"}
+                              })} type="text" className="form-control descArea" id="floatingInput"/>
                             {errors.description && <span className="errorColor">{errors.description.message}</span>}
-                        </div>
-                        <div className="form mb-3">
-                        <label for="floatingInput">Categoria</label>
-                          <select className="form-select" aria-label="Default select example" {...register("category", { required: true })}>
-                            <option  selected>Seleccionar categoria</option>
-                            <option value="Camiseta">Camiseta</option>
-                            <option value="Vaso">Vaso</option>
-                            <option value="Comic">Comic</option>
-                            <option value="Juguete">Juguete</option>
-                            <option value="Accesorio DC">Accesorio DC</option>
-                            <option value="Accesorio Marvel">Accesorio Marvel</option>
-                            <option value="Otros">Otros</option>
-                          </select>
-                        </div>
-                        <div className="form mb-3">
+                          </div>
+                          <div className="form mb-3">
+                          <label for="floatingInput">Categoria</label>
+                            <select className="form-select" aria-label="Default select example" {...register("category", { required: {value: true, message: "Seleccione una categoria"}})}>
+                              <option  selected>Seleccionar categoria</option>
+                              <option value="Camiseta">Camiseta</option>
+                              <option value="Vaso">Vaso</option>
+                              <option value="Comic">Comic</option>
+                              <option value="Juguete">Juguete</option>
+                              <option value="Accesorio DC">Accesorio DC</option>
+                              <option value="Accesorio Marvel">Accesorio Marvel</option>
+                              <option value="Otros">Otros</option>
+                            </select>
+                            {errors.category && <span className="errorColor">{errors.category.message}</span>}
+                          </div>
+                          <div className="form mb-3">
                             <label for="floatingInput">Precio</label>
-                            <input {...register("price", { required: true })} type="text" className="form-control" id="floatingInput"/>
-                        </div>
-                        <div className="form mb-3">
+                            <input {...register("price", {
+                              required: {value: true, message: "El campo es requerido"},
+                              max: {value: 1000000,  message: "No puedes ingresar un precio mayor a 1.000.000"},
+                              min: {value: 0,  message: "No puedes ingresar numeros negativos"} 
+                              })}type="number" className="form-control" id="floatingInput"/>
+                            {errors.price && <span className="errorColor">{errors.price.message}</span>}
+                          </div>
+                          <div className="form mb-3">
                             <label for="floatingInput">Stock</label>
-                            <input {...register("stock", { required: true })} type="number"  min="1"  className="form-control" id="floatingInput"/>
-                        </div>
-                        <div className="form mb-3">
+                            <input {...register("stock", { 
+                              required: {value: true, message: "El campo es requerido"},
+                              max: {value: 10000,  message: "No puedes ingresar un precio mayor a 10.000"},
+                              min: {value: 0,  message: "No puedes ingresar numeros negativos"} 
+                              })} type="number"  className="form-control" id="floatingInput"/>
+                            {errors.stock && <span className="errorColor">{errors.stock.message}</span>}
+                          </div>
+                          <div className="form mb-3">
                             <label for="floatingInput">Imagen (URL)</label>
                             <input {...register("imgUrl", { required: true })} type="text" className="form-control" id="floatingInput"/>
-                        </div>
-                        <div className='d-flex justify-content-center m-3'>
-                        <button className='btn btn-primary' type='submit'>AÑADIR +</button>
-                        </div>
-                      </form>
-                    </div>
+                            {errors.imgUrl && <span className="errorColor">{errors.imgUrl.message}</span>}
+                          </div>
+                          <div className='d-flex justify-content-center m-3'>
+                          <button className='btn btn-primary' type='submit'>AÑADIR +</button>
+                          </div>
+                        </form>
+                      </div>
                     </div>
                     <div className="modal-footer">
                       <button type="button" className="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>

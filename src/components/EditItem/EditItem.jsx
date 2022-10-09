@@ -44,6 +44,7 @@ function EditItem() {
     })
     .then(res => res.json())
     .then(json => {
+      console.log(json)
       if (json.status === 200) {
         Swal.fire({
           icon: 'success',
@@ -77,17 +78,25 @@ function EditItem() {
         <div className="card-body">
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="form mb-3">
-                <label for="floatingInput">Nombre</label>
-                <input {...register("name", { required: true, message: "El campo es requerido"})} type="text" name="name" className="form-control" id="floatingInput"/>
-                {errors.name && <span className="errorColor">{errors.name.message}</span>}
+              <label for="floatingInput">Nombre</label>
+              <input {...register("name", {
+                required: {value: true, message: "El campo es requerido"},
+                maxLength: { value: 40, message: "Solo puedes ingresar 40 caracteres"}
+                })} type="text" className="form-control" id="floatingInput"/>
+              {errors.name && <span className="errorColor">{errors.name.message}</span>}
             </div>
             <div className="form mb-3">
                 <label for="floatingInput">Descripción</label>
-                <textarea {...register("description", { required: true })} type="text" className="form-control descArea" id="floatingInput" />
+                <textarea {...register("description", {
+                  required: {value: true, message: "El campo es requerido"},
+                  maxLength: { value: 200, message: "Solo puedes ingresar 200 caracteres"}
+                  }
+                )} type="text" className="form-control descArea" id="floatingInput" />
+                {errors.description && <span className="errorColor">{errors.description.message}</span>}
             </div>
             <div className="form mb-3">
             <label for="floatingInput">Categoria</label>
-              <select className="form-select" aria-label="Default select example" {...register("category", { required: true })}>
+              <select className="form-select" aria-label="Default select example" {...register("category", {required: {value: true, message: "Seleccione una categoria"}})}>
                 <option disabled >Seleccionar categoria</option>
                 <option selected={"Camiseta"} value="Camiseta">Camiseta</option>
                 <option selected={"Vaso"} value="Vaso">Vaso</option>
@@ -97,18 +106,30 @@ function EditItem() {
                 <option selected={"Accesorio Marvel"} value="Accesorio Marvel">Accesorio Marvel</option>
                 <option selected={"Otros"} value="Otros">Otros</option>
               </select>
+              {errors.category && <span className="errorColor">{errors.category.message}</span>}
             </div>
             <div className="form mb-3">
                 <label for="floatingInput">Precio</label>
-                <input {...register("price", { required: true })} type="number" className="form-control" id="floatingInput"/>
+                <input {...register("price", { 
+                  required: {value: true, message: "El campo es requerido"},
+                  max: {value: 1000000,  message: "No puedes ingresar un precio mayor a 1.000.000"},
+                  min: {value: 0,  message: "No puedes ingresar numeros negativos"}
+                  })} type="number" className="form-control" id="floatingInput"/>
+                {errors.price && <span className="errorColor">{errors.price.message}</span>}
             </div>
             <div className="form mb-3">
                 <label for="floatingInput">Stock</label>
-                <input {...register("stock", { required: true })} type="number"  min="1"  className="form-control" id="floatingInput"/>
+                <input {...register("stock", { 
+                  required: {value: true, message: "El campo es requerido"},
+                  max: {value: 10000,  message: "No puedes ingresar un precio mayor a 10.000"},
+                  min: {value: 0,  message: "No puedes ingresar numeros negativos"} 
+                  })} type="number"  className="form-control" id="floatingInput"/>
+                {errors.stock && <span className="errorColor">{errors.stock.message}</span>}
             </div>
             <div className="form mb-3">
                 <label for="floatingInput">Imagen (URL)</label>
                 <input {...register("imgUrl", { required: true })} type="text" className="form-control" id="floatingInput"/>
+                {errors.imgUrl && <span className="errorColor">{errors.imgUrl.message}</span>}
             </div>
             <div className='d-flex justify-content-center m-3'>
               <button className='btn btn-success' type='submit'>Guardar</button>

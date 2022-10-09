@@ -5,7 +5,7 @@ import logo from '../../assets/logoNav.png'
 import Login from '../LoginModal/Login'
 
 
-function Navbar(props) {
+function Navbar() {
 
 const [isAdmin, setIsAdmin] = useState(JSON.parse(localStorage.getItem('user')).admin)
 
